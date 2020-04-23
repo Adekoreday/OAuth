@@ -15,13 +15,13 @@ namespace OAuth.webApi.Controllers {
         private readonly ILogger<UserController> _logger;
 
 
-        pubic UserController(ILogger<UserController> logger) {
+        public UserController(ILogger<UserController> logger) {
          _logger = logger;
         }
 
          [HttpGet]
-         public async Task<IActionResult> Get() {
-            return ok();
+         public IActionResult Get() {
+            return Ok();
          }
     }
 }
