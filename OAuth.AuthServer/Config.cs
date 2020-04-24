@@ -17,7 +17,8 @@ namespace OAuth.AuthServer{
                 new Client {
                     ClientId = "oauthApi",
                     ClientSecrets = new [] { new Secret("secret".Sha256())},
-                    AllowedGrantTypes = GrantTypes.ResourceOwnerPasswordAndClientCredentials
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPasswordAndClientCredentials,
+                    AllowedScopes = { "oauthApi" }
                 }
             };
         }
