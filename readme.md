@@ -33,7 +33,7 @@ pkcs12 -export -in OAuthServer.cer -inkey OAuthServer.key -out OAuthServer.pfx
 cd ./OAuth.AuthServer
 ```
 
-Aupdate the appSetting.json according to the appSetting.sample.json with the 
+Update the appSetting.json according to the appSetting.sample.json with the 
 .pfx path and password
 - Start the authentication server
 
