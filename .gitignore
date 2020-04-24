@@ -124,6 +124,7 @@ artifacts/
 *.pidb
 *.svclog
 *.scc
+*.rsa
 
 # Chutzpah Test files
 _Chutzpah*
@@ -225,7 +226,8 @@ ClientBin/
 *~
 *.dbmdl
 *.dbproj.schemaview
-*.pfx
+*.cer
+*.key
 *.publishsettings
 node_modules/
 bower_components/
