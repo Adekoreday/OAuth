@@ -30,12 +30,11 @@ namespace OAuth.AuthServer
 
           services.AddIdentityServer()
          .AddSigningCredential(new X509Certificate2(certificatePath, certificatePassword))
-         .AddTestUsers(Config.TestUsers().ToList())
+         .AddInMemoryIdentityResources(Config.IdentityResources())
          .AddInMemoryApiResources(Config.ApiResources())
-         .AddInMemoryClients(Config.Clients());
-
+          .AddInMemoryClients(Config.Clients(_configuration))
+         .AddTestUsers(Config.TestUsers().ToList());
          services.AddMvc(option => option.EnableEndpointRouting = false);
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
