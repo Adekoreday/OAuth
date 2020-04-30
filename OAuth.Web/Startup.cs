@@ -38,11 +38,15 @@ namespace OAuth.Web
            .AddOpenIdConnect("oidc", options =>
             {
                 options.Authority = "http://localhost:5002";
-                options.ClientId = "oauthWeb";
+                options.ClientId = "oauthWeb_Code";
+                options.ClientSecret= "secret";
                 options.SignInScheme = "Cookies";
                 options.SaveTokens = true;
                 options.RequireHttpsMetadata = false;
-                options.ResponseType = "id_token";
+                options.Scope.Add("oauthApi");
+                options.Scope.Add("offline_access");
+                options.GetClaimsFromUserInfoEndpoint = true;
+                options.ResponseType = "id_token code";
             });
 
         }

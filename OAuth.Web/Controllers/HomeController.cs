@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OAuth.Web.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
+using System.Net.Http.Headers;
 
 namespace OAuth.Web.Controllers
 {

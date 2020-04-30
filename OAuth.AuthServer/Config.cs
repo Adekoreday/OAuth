@@ -22,6 +22,7 @@ namespace OAuth.AuthServer{
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+                new IdentityResources.Email(),
             };
         }
 
@@ -49,6 +50,18 @@ namespace OAuth.AuthServer{
                     AllowedScopes = { 
                           IdentityServerConstants.StandardScopes.OpenId, //OpenIdConnect scopes
                           IdentityServerConstants.StandardScopes.Profile,
+                         "oauthApi" //resource scopes
+                        },
+                },                new Client {
+                    ClientId = "oauthWeb_Code",
+                    ClientSecrets = new [] { new Secret("secret".Sha256())},
+                    AllowedGrantTypes = GrantTypes.Hybrid,
+                    RedirectUris = new [] {oauthWebRedirectUrl},
+                    PostLogoutRedirectUris = new [] {oauthWebLogoutRedirectUrl},
+                    AllowedScopes = { 
+                          IdentityServerConstants.StandardScopes.OpenId, //OpenIdConnect scopes
+                          IdentityServerConstants.StandardScopes.Profile,
+                          IdentityServerConstants.StandardScopes.Email,
                          "oauthApi" //resource scopes
                         },
                     AllowOfflineAccess = true
